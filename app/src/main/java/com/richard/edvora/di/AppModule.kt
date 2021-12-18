@@ -1,6 +1,6 @@
 package com.richard.edvora.di
 
-import com.richard.edvora.Constants
+import com.richard.edvora.commons.Constants
 import com.richard.edvora.feature_homepage.data.remote.EdvoraApi
 import com.richard.edvora.feature_homepage.data.repository.ProductRepositoryImpl
 import com.richard.edvora.feature_homepage.domain.repisitory.ProductRepisotory
