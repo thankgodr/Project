@@ -2,6 +2,7 @@ package com.richard.edvora.di
 
 import com.richard.edvora.commons.Constants
 import com.richard.edvora.feature_homepage.data.remote.EdvoraApi
+import com.richard.edvora.feature_homepage.data.repository.FakeDataImp
 import com.richard.edvora.feature_homepage.data.repository.ProductRepositoryImpl
 import com.richard.edvora.feature_homepage.domain.repisitory.ProductRepisotory
 import dagger.Module
@@ -29,6 +30,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideProductRepository(api : EdvoraApi) : ProductRepisotory{
-        return ProductRepositoryImpl(api)
+        return FakeDataImp()
     }
 }

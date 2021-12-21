@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface EdvoraApi {
 
-    @GET
+    @GET("/")
     suspend fun getProducts() : ProductDto
 }

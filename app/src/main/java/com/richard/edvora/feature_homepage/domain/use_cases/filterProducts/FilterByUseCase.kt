@@ -1,19 +1,16 @@
 package com.richard.edvora.feature_homepage.domain.use_cases.filterProducts
 
-import com.richard.edvora.commons.Resource
 import com.richard.edvora.feature_homepage.domain.model.Product
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import retrofit2.HttpException
-import java.io.IOException
+import javax.inject.Inject
 
-class FilterByUseCase(){
+class FilterByUseCase @Inject constructor(){
     operator fun invoke(list: List<Product>, filterOptions: FilterOptions) : List<Product> {
         when(filterOptions){
             is FilterOptions.ByProducts -> {
                 return list.filter { product ->
-                    product.name == filterOptions.value
+                    product.brandName.equals(filterOptions.value)
                 }
+
             }
             is FilterOptions.ByCity -> {
                 return list.filter { product ->
@@ -23,6 +20,11 @@ class FilterByUseCase(){
             is FilterOptions.ByStates -> {
                 return list.filter { product ->
                     product.location.contains(filterOptions.value)
+                }
+            }
+            is FilterOptions.ByName -> {
+                return list.filter { product->
+                    product.name == filterOptions.value
                 }
             }
         }

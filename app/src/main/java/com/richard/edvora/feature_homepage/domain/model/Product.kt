@@ -7,5 +7,7 @@ data class  Product(
     val location : String = "",
     val date : String = "",
     val description : String = "",
-    val img_url : String = ""
+    val img_url : String = "",
+    val city : String = "",
+    val state : String = ""
 )

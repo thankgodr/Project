@@ -31,6 +31,8 @@ fun ProductDtoItem.toProduct() : Product{
         location = "${address.city} ${address.state}",
         date = date,
         img_url = image,
-        description = discription
+        description = discription,
+        city = address.city,
+        state = address.state
     )
 }

@@ -1,10 +1,12 @@
 package com.richard.edvora.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.FontFamily
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -12,10 +14,18 @@ private val DarkColorPalette = darkColors(
     secondary = Teal200
 )
 
+
+@SuppressLint("ConflictingOnColor")
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = backGroundGrey,
+    primaryVariant = backGroundDeep,
+    secondary = bgSecondary,
+    background = backGroundGrey,
+    onPrimary = whiteColor,
+    onSecondary = whiteColor,
+
+
+
 
     /* Other default colors to override
     background = Color.White,
@@ -29,14 +39,14 @@ private val LightColorPalette = lightColors(
 
 @Composable
 fun EdvoraTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = if (darkTheme) {
+    /*val colors = if (darkTheme) {
         DarkColorPalette
     } else {
         LightColorPalette
-    }
+    }*/
 
     MaterialTheme(
-        colors = colors,
+        colors = LightColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content
