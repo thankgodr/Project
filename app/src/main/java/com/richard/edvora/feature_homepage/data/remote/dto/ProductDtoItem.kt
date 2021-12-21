@@ -3,6 +3,7 @@ package com.richard.edvora.feature_homepage.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import com.richard.edvora.feature_homepage.domain.model.Product
+import java.text.DecimalFormat
 
 data class ProductDtoItem(
     @SerializedName("address")
@@ -24,10 +25,11 @@ data class ProductDtoItem(
 )
 
 fun ProductDtoItem.toProduct() : Product{
+    val decimalFormat = DecimalFormat("0.00")
     return Product(
         name = productName,
         brandName = brandName,
-        price = price.toDouble(),
+        price = decimalFormat.format(price.toDouble()),
         location = "${address.city} ${address.state}",
         date = date,
         img_url = image,

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.richard.edvora.R
 import com.richard.edvora.feature_homepage.presentation.homepage.components.CategoryView
+import com.richard.edvora.ui.theme.whiteColor
 
 @Composable
 fun HomeScreen(viewModel: HomePageViewModel = hiltViewModel()){
@@ -23,7 +24,9 @@ fun HomeScreen(viewModel: HomePageViewModel = hiltViewModel()){
     val category = viewModel.categoryList.value
     Box(modifier = Modifier.fillMaxSize()) {
 
-        CategoryView(category = category)
+        if(!loadingState.isLoading){
+            CategoryView(category = category)
+        }
         if(loadingState.error.isNotBlank()) {
             Text(
                 text = loadingState.error,
@@ -36,7 +39,10 @@ fun HomeScreen(viewModel: HomePageViewModel = hiltViewModel()){
             )
         }
         if(loadingState.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center),
+                color = whiteColor
+            )
         }
     }
 }

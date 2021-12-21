@@ -30,6 +30,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideProductRepository(api : EdvoraApi) : ProductRepisotory{
-        return FakeDataImp()
+        return ProductRepositoryImpl(api)
     }
 }
